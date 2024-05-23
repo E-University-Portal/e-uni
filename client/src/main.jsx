@@ -8,12 +8,14 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-import SignInPage from './pages/SignIn.jsx';
+import SignInPage from './pages/SignInPage.jsx';
+// import Header from './components/Header.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
-      <Route path='signin' element={<SignInPage />} />
+      <Route path='/signin' element={<SignInPage />} />
+      {/* <Route path='/header' element={<Header />} /> */}
     </Route>
   )
 );
