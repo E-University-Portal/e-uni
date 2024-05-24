@@ -44,23 +44,25 @@ facultySchema.methods.generateAccessToken = function () {
   return jwt.sign(
     {
       _id: this._id,
+      type: "faculty",
       email: this.email,
       facultyId: this.facultyId,
       name: this.name,
       roles: this.roles,
     },
-    process.env.ACCESS_TOKEN_SECRET,
+    process.env.FACULTY_ACCESS_TOKEN_SECRET,
     {
       expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
     },
   );
 };
+
 facultySchema.methods.generateRefreshToken = function () {
   return jwt.sign(
     {
       _id: this._id,
     },
-    process.env.REFRESH_TOKEN_SECRET,
+    process.env.FACULTY_REFRESH_TOKEN_SECRET,
     {
       expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
     },

@@ -11,7 +11,7 @@ const studentSchema = new Schema(
       type: String,
       required: true,
     },
-    rollNo: {
+    rollno: {
       type: String,
       required: true,
     },
@@ -44,23 +44,25 @@ studentSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     {
       _id: this._id,
+      type: "student",
       email: this.email,
-      rollno: this.rollNo,
+      rollno: this.rollno,
       name: this.name,
       roles: this.roles,
     },
-    process.env.ACCESS_TOKEN_SECRET,
+    process.env.STUDENT_ACCESS_TOKEN_SECRET,
     {
       expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
     },
   );
 };
+
 studentSchema.methods.generateRefreshToken = function () {
   return jwt.sign(
     {
       _id: this._id,
     },
-    process.env.REFRESH_TOKEN_SECRET,
+    process.env.STUDENT_REFRESH_TOKEN_SECRET,
     {
       expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
     },

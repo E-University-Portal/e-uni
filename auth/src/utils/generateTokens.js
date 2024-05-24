@@ -1,15 +1,17 @@
+import Faculty from "../models/faculty.model";
+import Student from "../models/student.model";
 import HttpError from "./HttpError";
 
 export const generateStudentAccessAndRefreshTokens = async (studentId) => {
   try {
-    const student = await Students.findById(studentId);
+    const student = await Student.findById(studentId);
 
     if (!student) {
       throw new HttpError(404, "Student not found");
     }
 
-    const accessToken = user.generateAccessToken();
-    const refreshToken = user.generateRefreshToken();
+    const accessToken = student.generateAccessToken();
+    const refreshToken = student.generateRefreshToken();
 
     student.refreshToken = refreshToken;
     await student.save({ validateBeforeSave: false });
@@ -28,8 +30,8 @@ export const generateFacultyAccessAndRefreshTokens = async (facultyId) => {
       throw new HttpError(404, "Faculty not found");
     }
 
-    const accessToken = user.generateAccessToken();
-    const refreshToken = user.generateRefreshToken();
+    const accessToken = faculty.generateAccessToken();
+    const refreshToken = faculty.generateRefreshToken();
 
     faculty.refreshToken = refreshToken;
     await faculty.save({ validateBeforeSave: false });

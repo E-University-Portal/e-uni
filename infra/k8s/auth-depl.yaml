@@ -15,12 +15,37 @@ spec:
       containers:
         - name: auth
           image: us.gcr.io/e-uni-424011/auth
-          # env:
-          #   - name: JWT_KEY
-          #     valueFrom:
-          #       secretKeyRef:
-          #         name: jwt-secret
-          #         key: JWT_KEY
+          env:
+            - name: ACCESS_TOKEN_EXPIRY
+              valueFrom:
+                secretKeyRef:
+                  name: access-token-expiry
+                  key: ACCESS_TOKEN_EXPIRY
+            - name: REFRESH_TOKEN_EXPIRY
+              valueFrom:
+                secretKeyRef:
+                  name: refresh-token-expiry
+                  key: REFRESH_TOKEN_EXPIRY
+            - name: FACULTY_ACCESS_TOKEN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: faculty-access-token-secret
+                  key: FACULTY_ACCESS_TOKEN_SECRET
+            - name: FACULTY_REFRESH_TOKEN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: faculty-refresh-token-secret
+                  key: FACULTY_REFRESH_TOKEN_SECRET
+            - name: STUDENT_ACCESS_TOKEN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: student-access-token-secret
+                  key: STUDENT_ACCESS_TOKEN_SECRET
+            - name: STUDENT_REFRESH_TOKEN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: student-refresh-token-secret
+                  key: STUDENT_REFRESH_TOKEN_SECRET
 ---
 apiVersion: v1
 kind: Service
