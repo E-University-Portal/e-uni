@@ -1,25 +1,72 @@
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 import mongoose, { Schema } from "mongoose";
-
 const facultySchema = new Schema(
   {
     name: {
-      type: string,
+      type: String,
       required: true,
     },
     email: {
-      type: string,
+      type: String,
       required: true,
     },
     facultyId: {
-      type: string,
+      type: String,
       required: true,
     },
     password: {
-      type: string,
+      type: String,
       required: true,
+    },
+    roles: {
+      type: [String],
     },
   },
   { timestamps: true },
 );
 
-export default Faculty = mongoose.model("Faculty", facultySchema);
+facultySchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    return next();
+  }
+
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
+
+facultySchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
+facultySchema.methods.generateAccessToken = function () {
+  return jwt.sign(
+    {
+      _id: this._id,
+      email: this.email,
+      facultyId: this.facultyId,
+      name: this.name,
+      roles: this.roles,
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    {
+      expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
+    },
+  );
+};
+facultySchema.methods.generateRefreshToken = function () {
+  return jwt.sign(
+    {
+      _id: this._id,
+    },
+    process.env.REFRESH_TOKEN_SECRET,
+    {
+      expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
+    },
+  );
+};
+
+const Faculty = mongoose.model("Faculty", facultySchema);
+
+export default Faculty;

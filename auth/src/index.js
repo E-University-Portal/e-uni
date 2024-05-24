@@ -1,5 +1,5 @@
-import app from "./app.js";
 import { createServer } from "http";
+import app from "./app.js";
 import connectDB from "./db/connect.js";
 
 let server;
