@@ -4,13 +4,17 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "prettify": "prettier --write \"src/**/*.js\"",
+    "data:import": "node src/seeder.js",
+    "data:destroy": "node src/seeder.js -d"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.19.2",
@@ -18,9 +22,14 @@
     "mongoose": "^8.4.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "eslint": "^9.3.0",
+    "globals": "^15.3.0",
     "jest": "^29.7.0",
     "mongodb-memory-server": "^9.2.0",
     "nodemon": "^3.1.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
     "supertest": "^7.0.0"
   }
 }
