@@ -1,3 +1,87 @@
-const faculty = [];
-
+const faculty = [
+  {
+    name: "Dr. Aarti Sharma",
+    email: "aarti.sharma@example.com",
+    facultyId: "FAC2022001",
+    password: "faculty123",
+    roles: "HOD, Dean",
+  },
+  {
+    name: "Dr. Rohit Kumar",
+    email: "rohit.kumar@example.com",
+    facultyId: "FAC2022002",
+    password: "faculty456",
+    roles: "HOD",
+  },
+  {
+    name: "Prof. Anjali Verma",
+    email: "anjali.verma@example.com",
+    facultyId: "FAC2022003",
+    password: "Faculty23",
+    roles: "Dean",
+  },
+  {
+    name: "Dr. Suresh Patil",
+    email: "suresh.patil@example.com",
+    facultyId: "FAC2022004",
+    password: "fac123",
+    roles: "",
+  },
+  {
+    name: "Prof. Meena Gupta",
+    email: "meena.gupta@example.com",
+    facultyId: "FAC2022005",
+    password: "faculty",
+    roles: "HOD",
+  },
+  {
+    name: "Dr. Vikram Joshi",
+    email: "vikram.joshi@example.com",
+    facultyId: "FAC2022006",
+    password: "faculty#123",
+    roles: "Dean",
+  },
+  {
+    name: "Prof. Kavita Rao",
+    email: "kavita.rao@example.com",
+    facultyId: "FAC2022007",
+    password: "faculty13",
+    roles: "",
+  },
+  {
+    name: "Dr. Arjun Singh",
+    email: "arjun.singh@example.com",
+    facultyId: "FAC2022008",
+    password: "faculty3",
+    roles: "HOD, Dean",
+  },
+  {
+    name: "Prof. Sneha Mehta",
+    email: "sneha.mehta@example.com",
+    facultyId: "FAC2022009",
+    password: "faculty1234",
+    roles: "HOD",
+  },
+  {
+    name: "Dr. Rahul Jain",
+    email: "rahul.jain@example.com",
+    facultyId: "FAC2022010",
+    password: "fac",
+    roles: "",
+  },
+  {
+    name: "Prof. Priya Desai",
+    email: "priya.desai@example.com",
+    facultyId: "FAC2022011",
+    password: "faculty876",
+    roles: "Dean",
+  },
+  {
+    name: "Dr. Aman Chatterjee",
+    email: "aman.chatterjee@example.com",
+    facultyId: "FAC2022012",
+    password: "faculty786",
+    roles: "HOD",
+  },
+];
 export default faculty;
