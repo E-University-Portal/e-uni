@@ -19,9 +19,6 @@ const studentSchema = new Schema(
       type: String,
       required: true,
     },
-    roles: {
-      type: [String],
-    },
   },
   { timestamps: true },
 );
