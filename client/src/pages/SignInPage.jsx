@@ -1,4 +1,3 @@
-import React from 'react';
 import SignInWithGoogleButton from "../components/SignInWithGoogleButton.jsx";
 
 const SignIn = () => {
