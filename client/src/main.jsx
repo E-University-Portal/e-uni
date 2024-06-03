@@ -11,6 +11,7 @@ import {
 import SignInPage from "./pages/SignInPage.jsx";
 import ProtectedRoutes from "./components/ProtectedRoutes.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import Research from "./pages/Research.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route path="/auth" element={<SignInPage />} />
       <Route path="" element={<ProtectedRoutes />}>
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/research" element={<Research />} />
       </Route>
     </Route>,
   ),

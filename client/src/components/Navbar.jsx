@@ -6,6 +6,9 @@ export default function Navbar() {
       <Link to={"/"} className="h-fit flex justify-center items-center mt-4">
         <img src="/logo.svg" className="max-h-10" />
       </Link>
+      <Link to={"/"} className="h-fit flex justify-center items-center mt-4">
+        <img src="/profile.svg" className="max-h-4" />
+      </Link>
     </div>
   );
 }
