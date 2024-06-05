@@ -7,7 +7,7 @@ export default function ProtectedRoutes() {
   return (
     <div className="bg-[#f0f0f0] min-h-dvh w-full">
       <Navbar />
-      <div className="ml-52">
+      <div className="ml-[calc(100dvw/6)]">
         <Header />
         <div className="mt-14 px-16">
           <Outlet />

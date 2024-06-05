@@ -5,7 +5,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@radix-ui/react-popover";
+} from "./ui/popover";
 import { useEffect, useState } from "react";
 
 export default function Header() {

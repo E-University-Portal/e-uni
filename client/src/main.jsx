@@ -8,7 +8,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import SignInPage from "./pages/SignInPage.jsx";
+import StudentLoginPage from "./pages/StudentLoginPage.jsx";
+import FacultyLoginPage from "./pages/FacultyLoginPage.jsx"
 import ProtectedRoutes from "./components/ProtectedRoutes.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import Research from "./pages/Research.jsx";
@@ -16,7 +17,8 @@ import Research from "./pages/Research.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path="/auth" element={<SignInPage />} />
+      <Route path="/auth/student" element={<StudentLoginPage />} />
+      <Route path="/auth/faculty" element={<FacultyLoginPage />} />
       <Route path="" element={<ProtectedRoutes />}>
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/research" element={<Research />} />
