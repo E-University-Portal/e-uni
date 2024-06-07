@@ -1,27 +1,27 @@
-import { FileText, GraduationCap, University, User } from "lucide-react";
+import { FileText, LayoutDashboard } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 const Navlinks = [
   {
-    to: "/profile",
-    name: "Profile",
-    icon: <User size={36} />,
+    to: "/",
+    name: "Dashboard",
+    icon: <LayoutDashboard className="w-[2.25dvw]" />,
   },
   {
     to: "/research",
     name: "Research",
-    icon: <FileText size={36} />,
+    icon: <FileText className="w-[2.25dvw]" />,
   },
-  {
-    to: "/academics",
-    name: "Academics",
-    icon: <GraduationCap size={36} />,
-  },
-  {
-    to: "/admin",
-    name: "Administration",
-    icon: <University size={36} />,
-  },
+  // {
+  //   to: "/academics",
+  //   name: "Academics",
+  //   icon: <GraduationCap className="w-[2.25dvw]" />,
+  // },
+  // {
+  //   to: "/admin",
+  //   name: "Administration",
+  //   icon: <University className="w-[2.25dvw]" />,
+  // },
 ];
 
 export default function NavLinks() {
@@ -35,12 +35,22 @@ export default function NavLinks() {
             className={({ isActive }) =>
               [
                 isActive ? "bg-[#f0f0f0]" : "text-white",
-                "flex items-center w-full text-[1.5dvw] gap-x-[1dvw] pl-6 py-4",
+                "flex items-center hover:text-[#f13024] w-full text-[1.5dvw] gap-x-[1dvw] justify-center py-[1dvw] relative group transition-all duration-150",
               ].join(" ")
             }
           >
+            <div className="absolute pl-[calc(5dvw+16px)] left-0 hidden group-hover:flex">
+              {/* tooltip */}
+              <div className="bg-black relative flex text-white items-center p-[6px] rounded-[3px]">
+                <div className="text-[12px] leading-none font-semibold capitalize">
+                  {navlink.name}
+                </div>
+                {/* triangle */}
+                <div className="border-solid border-r-black border-r-8 border-y-transparent border-y-[6px] border-l-0 absolute -left-2"></div>
+              </div>
+            </div>
+
             {navlink.icon}
-            {navlink.name}
           </NavLink>
         );
       })}

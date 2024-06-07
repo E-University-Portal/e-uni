@@ -3,8 +3,8 @@ import { Search } from "lucide-react";
 
 export default function SearchBar() {
   return (
-    <div className="flex space-x-2 w-full">
-      <div className="relative items-center w-1/2">
+    <div className="flex space-x-2 w-3/5">
+      <div className="relative items-center w-full">
         <Input
           type="text"
           className="px-3 py-2 pr-10 rounded-3xl border-2 border-gray-900 focus-visible:ring-0 focus-visible:ring-offset-0 block w-full"

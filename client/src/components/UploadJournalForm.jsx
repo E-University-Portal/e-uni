@@ -2,13 +2,13 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { Button } from "./ui/button";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Button } from "../components/ui/button";
+import { Label } from "../components/ui/label";
+import { Input } from "../components/ui/input";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 import { useState } from "react";
@@ -137,12 +137,21 @@ export default function UploadJournalForm() {
                 <Input id="address" placeholder="" />
               </div>
               <div className="flex flex-col  space-y-2">
-                <Label htmlFor="state">No. of Pages</Label>
-                <Input id="state" placeholder="" />
+                <Label htmlFor="pages">No. of Pages</Label>
+                <Input id="pages" placeholder="" />
               </div>
               <div className="flex flex-col space-y-2">
-                <Label htmlFor="pincode">Paid/Unpaid</Label>
-                <Input id="pincode" placeholder="" />
+                <Label htmlFor="value">Paid/Unpaid</Label>
+                <RadioGroup defaultValue="Paid">
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="paid" id="paid" />
+                    <Label htmlFor="option-one">Paid</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="unpaid" id="unpaid" />
+                    <Label htmlFor="option-two">Unpaid</Label>
+                  </div>
+                </RadioGroup>
               </div>
             </div>
 

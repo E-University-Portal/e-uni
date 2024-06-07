@@ -3,14 +3,24 @@ import NavLinks from "./NavLinks";
 
 export default function Navbar() {
   return (
-    <div className="bg-gradient-to-b from-[#DE640C] to-[#C3450C] w-1/6 h-full fixed top-0 left-0 z-[1000]">
-      <Link to="/" className="h-fit flex justify-center items-center mt-4">
-        <img src="/logo.svg" className="max-h-10" />
-      </Link>
-      <div to="/" className="h-fit flex justify-center items-center mt-4">
-        <img src="/profile.svg" className="h-48" />
+    <div className="bg-[#73A8FF] w-[5dvw] h-full fixed top-0 left-0 hidden md:flex md:flex-col items-center justify-between">
+      <div className="w-full">
+        <Link
+          to="/"
+          className="h-fit flex justify-center items-center mt-4 mb-6"
+        >
+          <img src="/logo.svg" className="h-[2.5dvw]" />
+        </Link>
+        <NavLinks />
       </div>
-      <NavLinks />
+      <div
+        to="/"
+        className="h-fit flex justify-center rounded-full items-center my-4"
+      >
+        <Link to="/profile">
+          <img src="/profile.svg" className="w-[2.5dvw] " />
+        </Link>
+      </div>
     </div>
   );
 }

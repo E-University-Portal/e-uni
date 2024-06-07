@@ -14,7 +14,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useState } from "react";
-import ProfileStats from "@/components/ProfileStats";
+//import ProfileStats from "@/components/ProfileStats";
 
 export default function ProfilePage() {
   const [date, setDate] = useState();
@@ -37,7 +37,6 @@ export default function ProfilePage() {
                   Save
                 </Button>
               </div>
-              <ProfileStats />
             </div>
           </form>
         </CardContent>

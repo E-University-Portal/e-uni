@@ -1,16 +1,27 @@
 import { Card } from "@/components/ui/card";
 import SearchBar from "@/components/SearchBar";
-import UploadDialog from "../components/UploadDialog";
+// import { Upload } from "lucide-react";
+import UploadDialog from "@/components/UploadDialog";
+// import {
+//   Dialog,
+//   DialogContent,
+//   DialogDescription,
+//   DialogHeader,
+//   DialogTitle,
+//   DialogTrigger,
+// } from "@/components/ui/dialog";
+// import { Label } from "../components/ui/label";
+// import { Button } from "../components/ui/button";
 function Research() {
   return (
     <div>
       <Card className="flex flex-col">
         <div className="mb-4 mt-4 flex flex-col mx-4">
-          <div className="flex w-full items-center justify-between">
+          <button className="w-full flex justify-end">
+            <UploadDialog />
+          </button>
+          <div className="flex w-full items-center justify-center">
             <SearchBar />
-            <button>
-              <UploadDialog />
-            </button>
           </div>
         </div>
         <div className="flex mb-4 mt-4 mx-2">
@@ -19,6 +30,7 @@ function Research() {
             <div className="text-6xl font-bold mt-3">19</div>
             <div className="font-bold mb-">Journals</div>
           </Card>
+
           <Card className="w-1/4 mx-2 bg-[#F9E0E1] p-2 flex flex-col items-center">
             <div className="self-start text-sm text-gray-500">Till 2022</div>
             <div className="text-6xl font-bold mt-3">08</div>
