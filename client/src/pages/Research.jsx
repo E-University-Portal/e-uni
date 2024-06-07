@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import SearchBar from "@/components/SearchBar";
-import { Upload } from "lucide-react";
+import UploadDialog from "../components/UploadDialog";
 function Research() {
   return (
     <div>
@@ -9,7 +9,7 @@ function Research() {
           <div className="flex w-full items-center justify-between">
             <SearchBar />
             <button>
-              <Upload />
+              <UploadDialog />
             </button>
           </div>
         </div>
