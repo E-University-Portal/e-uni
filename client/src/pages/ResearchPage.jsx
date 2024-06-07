@@ -12,7 +12,7 @@ import UploadDialog from "@/components/UploadDialog";
 // } from "@/components/ui/dialog";
 // import { Label } from "../components/ui/label";
 // import { Button } from "../components/ui/button";
-function Research() {
+function ResearchPage() {
   return (
     <div>
       <Card className="flex flex-col">
@@ -53,4 +53,4 @@ function Research() {
   );
 }
 
-export default Research;
+export default ResearchPage;

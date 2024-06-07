@@ -18,7 +18,7 @@ export default function Navbar() {
         className="h-fit flex justify-center rounded-full items-center my-4"
       >
         <Link to="/profile">
-          <img src="/profile.svg" className="w-[2.5dvw] " />
+          <img src="/profile.svg" className="w-[2.5dvw]" />
         </Link>
       </div>
     </div>

@@ -9,10 +9,10 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import StudentLoginPage from "./pages/StudentLoginPage.jsx";
-import FacultyLoginPage from "./pages/FacultyLoginPage.jsx"
+import FacultyLoginPage from "./pages/FacultyLoginPage.jsx";
 import ProtectedRoutes from "./components/ProtectedRoutes.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
-import Research from "./pages/Research.jsx";
+import ResearchPage from "./pages/ResearchPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,7 +21,7 @@ const router = createBrowserRouter(
       <Route path="/auth/faculty" element={<FacultyLoginPage />} />
       <Route path="" element={<ProtectedRoutes />}>
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/research" element={<Research />} />
+        <Route path="/research" element={<ResearchPage />} />
       </Route>
     </Route>,
   ),
