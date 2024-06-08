@@ -13,6 +13,7 @@ import FacultyLoginPage from "./pages/FacultyLoginPage.jsx";
 import ProtectedRoutes from "./components/ProtectedRoutes.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import ResearchPage from "./pages/ResearchPage.jsx";
+import NptelUploadPage from "./pages/NptelUploadPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route path="" element={<ProtectedRoutes />}>
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/research" element={<ResearchPage />} />
+        <Route path="/my-nptel" element={<NptelUploadPage />} />
       </Route>
     </Route>,
   ),

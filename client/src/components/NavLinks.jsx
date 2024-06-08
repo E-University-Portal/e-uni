@@ -12,6 +12,11 @@ const Navlinks = [
     name: "Research",
     icon: <FileText className="w-[2.25dvw]" />,
   },
+  {
+    to: "/my-nptel",
+    name: "NPTEL",
+    icon: <img src="/nptel-logo.svg" className="w-[2.25dvw]" />,
+  },
   // {
   //   to: "/academics",
   //   name: "Academics",
@@ -39,7 +44,7 @@ export default function NavLinks() {
               ].join(" ")
             }
           >
-            <div className="absolute pl-[calc(5dvw+16px)] left-0 hidden group-hover:flex">
+            <div className="absolute pl-[calc(5dvw+16px)] left-0 hidden md:group-hover:flex">
               {/* tooltip */}
               <div className="bg-black relative flex text-white items-center p-[6px] rounded-[3px]">
                 <div className="text-[12px] leading-none font-semibold capitalize">
