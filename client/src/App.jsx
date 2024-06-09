@@ -1,11 +1,9 @@
-import { Button } from "@/components/ui/button";
+import { Outlet } from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <Button>Click me</Button>
+    <div className="h-full w-full">
+      <Outlet />
     </div>
   );
 }
-
-export default App;
