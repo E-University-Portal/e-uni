@@ -45,23 +45,10 @@ studentSchema.methods.generateAccessToken = function () {
       email: this.email,
       rollno: this.rollno,
       name: this.name,
-      roles: this.roles,
     },
     process.env.STUDENT_ACCESS_TOKEN_SECRET,
     {
       expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
-    },
-  );
-};
-
-studentSchema.methods.generateRefreshToken = function () {
-  return jwt.sign(
-    {
-      _id: this._id,
-    },
-    process.env.STUDENT_REFRESH_TOKEN_SECRET,
-    {
-      expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
     },
   );
 };

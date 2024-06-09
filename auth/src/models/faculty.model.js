@@ -19,9 +19,6 @@ const facultySchema = new Schema(
       type: String,
       required: true,
     },
-    roles: {
-      type: [String],
-    },
   },
   { timestamps: true },
 );
@@ -48,23 +45,10 @@ facultySchema.methods.generateAccessToken = function () {
       email: this.email,
       facultyId: this.facultyId,
       name: this.name,
-      roles: this.roles,
     },
     process.env.FACULTY_ACCESS_TOKEN_SECRET,
     {
       expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
-    },
-  );
-};
-
-facultySchema.methods.generateRefreshToken = function () {
-  return jwt.sign(
-    {
-      _id: this._id,
-    },
-    process.env.FACULTY_REFRESH_TOKEN_SECRET,
-    {
-      expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
     },
   );
 };
