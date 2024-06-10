@@ -9,24 +9,33 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import { Input } from "../components/ui/input";
+import { useForm } from "react-hook-form";
 
 // eslint-disable-next-line react/prop-types
-export default function LoginForm({ handleSubmit, description }) {
+export default function LoginForm({ onSubmit, description }) {
   const [visible, setVisible] = useState(false);
+  const { register, handleSubmit } = useForm();
+
   return (
     <Card className="min-w-96 items-center bg-card text-center shadow-lg">
       <CardHeader className="py-8">
         <CardTitle>Login</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
-      <form onSubmit={handleSubmit} method="POST">
+      <form onSubmit={handleSubmit(onSubmit)} method="POST">
         <CardContent className="space-y-6">
-          <Input type="text" name="email" placeholder="Email" />
+          <Input
+            type="text"
+            name="email"
+            placeholder="Email"
+            {...register("email", { required: true })}
+          />
           <div className="w-full flex space-x-2 items-center">
             <Input
               type={visible ? "text" : "password"}
               name="password"
               placeholder="Password"
+              {...register("password", { required: true })}
             />
             <Button
               type="button"

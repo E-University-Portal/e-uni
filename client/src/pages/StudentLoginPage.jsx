@@ -1,16 +1,27 @@
 import LoginForm from "@/components/LoginForm";
-
+import axios from "axios";
+import LoginHeader from "@/components/LoginHeader";
+import { useToast } from "@/components/ui/use-toast";
 export default function StudentLoginPage() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted");
+  const { toast } = useToast();
+  const handleSubmit = async (data) => {
+    try {
+      const response = await axios.post("/api/users/students/sign-in", data);
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+      toast({
+        variant: "destructive",
+        description: error.message,
+      });
+    }
   };
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-br from-[#EE0050] to-[#00A6CB]">
-      <LoginForm
-        handleSubmit={handleSubmit}
-        description={"E-Uni Student Login"}
-      />
+      {" "}
+      <LoginHeader />
+      <LoginForm onSubmit={handleSubmit} description={"E-Uni Student Login"} />
     </div>
   );
 }
