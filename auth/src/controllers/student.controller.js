@@ -49,3 +49,9 @@ export const studentSignIn = asyncHandler(async (req, res) => {
     throw new ApiError(error.statusCode, error.message);
   }
 });
+
+export const currentStudentUser = asyncHandler(async (req, res) => {
+  return res
+    .status(200)
+    .json(new ApiResponse(200, req.student, "Student fetched successfully"));
+});

@@ -8,27 +8,27 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import StudentLoginPage from "./pages/StudentLoginPage.jsx";
-import { ThemeProvider } from "./contexts/ThemeProvider.jsx";
-import AuthOutlet from "./components/AuthOutlet.jsx";
-// import FacultyLoginPage from "./pages/FacultyLoginPage.jsx";
-// import ProtectedRoutes from "./components/ProtectedRoutes.jsx";
-// import ProfilePage from "./pages/ProfilePage.jsx";
-// import ResearchPage from "./pages/ResearchPage.jsx";
-// import NptelUploadPage from "./pages/NptelUploadPage.jsx";
+import StudentLoginPage from "@/pages/student/StudentLoginPage.jsx";
+import FacultyLoginPage from "@/pages/faculty/FacultyLoginPage.jsx";
+import { ThemeProvider } from "@/contexts/ThemeProvider.jsx";
+import AuthOutlet from "@/components/AuthOutlet.jsx";
+import StudentNptelPage from "@/pages/student/NptelPage.jsx";
+import { AuthProvider } from "./contexts/AuthProvider.jsx";
+import ProtectedRoute from "./components/ProtectedRoutes.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route path="/auth/" element={<AuthOutlet />}>
-        <Route path="student" element={<StudentLoginPage />} />
+    <Route element={<App />}>
+      <Route path="*" element={<div>404 not found!</div>} />
+      <Route element={<AuthOutlet />}>
+        <Route path="/auth/student" element={<StudentLoginPage />} />
+        <Route path="/auth/faculty" element={<FacultyLoginPage />} />
       </Route>
-      {/* <Route path="/auth/faculty" element={<FacultyLoginPage />} /> */}
-      {/* <Route path="" element={<ProtectedRoutes />}>
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/research" element={<ResearchPage />} />
-        <Route path="/my-nptel" element={<NptelUploadPage />} />
-      </Route> */}
+      <Route element={<ProtectedRoute />}>
+        <Route path="/nptel" element={<StudentNptelPage />} />
+        {/* <Route path="/dashboard" element={<DashboardPage />} /> */}
+        {/* <Route path="/subscription" element={<SubscriptionPage />} /> */}
+      </Route>
     </Route>,
   ),
 );
@@ -36,7 +36,9 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
 );

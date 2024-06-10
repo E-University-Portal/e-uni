@@ -1,4 +1,4 @@
-import faculty from "./data/faculty.js";
+c:\IQAC\client\public\certificate-icon.svgimport faculty from "./data/faculty.js";
 import students from "./data/students.js";
 import connectDB from "./db/connect.js";
 import Faculty from "./models/faculty.model.js";
