@@ -9,8 +9,10 @@ app.use(express.urlencoded({ extended: true, limit: "64kb" }));
 app.use(cors({ credentials: true, origin: "*" }));
 app.use(cookieParser());
 
-import studentSignInRouter from "./routes/signin-student.js";
+import studentMeRouter from "./routes/student/me.js";
+import studentSignInRouter from "./routes/student/sign-in.js";
 app.use(studentSignInRouter);
+app.use(studentMeRouter);
 
 app.get("/api/users/health", (req, res) => {
   res.send("Yay! It works!");

@@ -2,7 +2,9 @@ FROM node:alpine
 
 WORKDIR /app
 COPY package.json .
-RUN npm install --omit=dev
+RUN npm install
 COPY . .
 
-CMD ["node", "src/index.js"]
+EXPOSE 5173
+
+CMD ["npm", "run", "dev"]
