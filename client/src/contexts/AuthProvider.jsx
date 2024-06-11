@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 const AuthContext = createContext({
@@ -14,16 +14,22 @@ const useAuth = () => {
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const userRef = useRef(null);
+
+  userRef.current = user;
 
   useEffect(() => {
     const checkUser = async () => {
       try {
-        const { data } = await axios.get("/api/users/student/me");
+        const {
+          data: { data },
+        } = await axios.get("/api/users/student/me");
 
-        console.log(user);
         const userData = {
           id: data._id,
           email: data.email,
+          name: data.name,
+          type: data.type,
         };
 
         if (userData) {
@@ -61,7 +67,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, userRef, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

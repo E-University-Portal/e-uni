@@ -1,37 +1,33 @@
-import { useState } from "react";
-import { Bell, BellOff } from "lucide-react";
+import { Bell } from "lucide-react";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
+//import { Button } from "@/components/ui/button";
 import ThemeBtn from "@/components/ThemeBtn";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "@/contexts/ThemeProvider";
 export default function Header() {
-  const [notificationsOn, setNotificationsOn] = useState(true);
-
-  const toggleNotifications = () => {
-    setNotificationsOn(!notificationsOn);
-  };
+  const { toggle } = useContext(ThemeContext);
 
   return (
     <>
-      <div className="flex flex-row bg-white items-center justify-end p-4 space-x-4">
-        <span className="mr-4">MyUni</span>
+      <div className="flex flex-row items-center justify-end p-4 space-x-4 bg-accent">
         <Popover>
           <PopoverTrigger>
-            {notificationsOn ? (
-              <Bell className="text-gray-600" />
-            ) : (
-              <BellOff className="text-gray-600" />
-            )}
+            <Bell className="text-accent-foreground" />
           </PopoverTrigger>
           <PopoverContent>Notifications:</PopoverContent>
         </Popover>
-        {/* <Button onClick={toggleNotifications}>
-          {notificationsOn ? "Turn Off Notifications" : "Turn On Notifications"}
-        </Button> */}
         <ThemeBtn />
+        <Link to="/profile" className="flex justify-center items-center h-fit">
+          <img
+            src={!toggle ? "/profile.svg" : "/profile-black.svg"}
+            className="w-[3dvw] h-[3dvw] mb-1 ml-8 mr-8 transition-transform duration-200"
+          />
+        </Link>
       </div>
     </>
   );

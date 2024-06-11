@@ -69,9 +69,11 @@ import Header from "@/components/Header";
 export default function NptelPage() {
   return (
     <>
-      <Header />
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <NptelUpload />
+      <div className="dark:bg-blue-900">
+        <Header />
+        <div className="flex items-center justify-center min-h-screen bg-gray-primary">
+          <NptelUpload />
+        </div>
       </div>
     </>
   );

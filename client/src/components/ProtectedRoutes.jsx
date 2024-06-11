@@ -4,13 +4,11 @@ import Navbar from "./Navbar";
 
 // eslint-disable-next-line react/prop-types
 const ProtectedRoute = () => {
-  const auth = useAuth();
+  const { userRef } = useAuth();
 
-  console.log(auth.user); // null!!
-
-  // if (!auth.user) {
-  //   return <Navigate to="/auth/student" />;
-  // }
+  if (!userRef) {
+    return <Navigate to="/auth/student" />;
+  }
 
   return (
     <>

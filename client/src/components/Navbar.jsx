@@ -29,7 +29,7 @@ export default function Navbar() {
 
         <div className="w-full flex flex-col items-center space-y-4">
           <Link
-            to="/dashboard"
+            to="/"
             className="flex flex-row space-x-2 items-center justify-center w-full h-[5dvw] text-white hover:bg-blue-700 rounded-md transition-colors duration-200"
           >
             <LayoutDashboard
@@ -40,7 +40,9 @@ export default function Navbar() {
                   : "h-[2dvw] w-[2dvw] transition-transform duration-200"
               }`}
             />
-            {!isCollapsed && <span className=" ml-4 mr-0 text-md">Dashboard</span>}
+            {!isCollapsed && (
+              <span className=" ml-4 mr-0 text-md">Dashboard</span>
+            )}
           </Link>
 
           <Link
@@ -59,8 +61,11 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="w-full pt-4 mt-6 flex justify-center items-center">
-          <Link to="/profile" className="flex justify-center items-center h-fit">
+        {/* <div className="w-full pt-4 mt-6 flex justify-center items-center">
+          <Link
+            to="/profile"
+            className="flex justify-center items-center h-fit"
+          >
             <img
               src="/profile.svg"
               className={`${
@@ -70,7 +75,7 @@ export default function Navbar() {
               }`}
             />
           </Link>
-        </div>
+        </div> */}
 
         <div className="w-full border-t border-gray-300 pt-4 mt-6 flex justify-center items-center">
           <button

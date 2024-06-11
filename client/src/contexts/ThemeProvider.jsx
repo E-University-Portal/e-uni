@@ -8,6 +8,7 @@ const ThemeProvider = ({ children }) => {
   const toggleFunction = () => {
     setToggle(!toggle);
   };
+
   return (
     <ThemeContext.Provider value={{ toggle, toggleFunction }}>
       {children}
