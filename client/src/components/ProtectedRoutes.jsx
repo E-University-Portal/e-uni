@@ -1,8 +1,9 @@
 import { useAuth } from "@/contexts/AuthProvider";
 import { Navigate, Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
 
 // eslint-disable-next-line react/prop-types
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = () => {
   const auth = useAuth();
 
   console.log(auth.user); // null!!
@@ -11,7 +12,12 @@ const ProtectedRoute = ({ children }) => {
   //   return <Navigate to="/auth/student" />;
   // }
 
-  return children ? children : <Outlet />;
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
 };
 
 export default ProtectedRoute;

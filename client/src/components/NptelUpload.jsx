@@ -22,7 +22,6 @@ export default function NptelUpload() {
   };
 
   return (
-    
     <div className="flex items-center justify-center w-full h-full bg-gray-primary">
       <form
         className="bg-white p-8 rounded-lg shadow-lg"
@@ -41,7 +40,7 @@ export default function NptelUpload() {
           </div>
           <label
             htmlFor="file-upload"
-            className="relative inline-block cursor-pointer rounded-md bg-indigo-600 py-2 px-4 font-semibold text-white focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-primary focus-within:ring-offset-2 hover:bg-indigo-primary"
+            className="relative inline-block cursor-pointer rounded-md bg-primary py-2 px-4 font-semibold text-white focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-primary focus-within:ring-offset-2 hover:bg-indigo-primary"
           >
             <span>Upload NPTEL Certificate</span>
             <input
@@ -55,10 +54,12 @@ export default function NptelUpload() {
         </div>
         <div
           className={`border-2 border-dashed rounded-lg p-6 ${
-            dragActive ? "border-indigo-primary" : "border-gray-primary"
+            dragActive ? "border-primary" : "border-gray-primary"
           }`}
         >
-          <p className="text-gray-500 text-center">Drag & Drop your file here</p>
+          <p className="text-gray-500 text-center">
+            Drag & Drop your file here
+          </p>
         </div>
         <p className="mt-4 text-xs text-gray-600 text-center">PDF up to 10MB</p>
       </form>

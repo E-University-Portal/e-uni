@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { ChevronLeft, LayoutDashboard } from "lucide-react";
-import Navbar from "@/components/Navbar";
+// import { useState } from "react";
+// import { ChevronLeft, LayoutDashboard } from "lucide-react";
+//import Navbar from "@/components/Navbar";
+import NptelUpload from "@/components/NptelUpload";
 // function NptelPage() {
 //   const [open, setOpen] = useState(true);
 //   const Menus = [
@@ -66,8 +67,9 @@ import Navbar from "@/components/Navbar";
 export default function NptelPage() {
   return (
     <>
-      {" "}
-      <Navbar />{" "}
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <NptelUpload />
+      </div>
     </>
   );
 }

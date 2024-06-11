@@ -19,8 +19,8 @@ const AuthProvider = ({ children }) => {
     const checkUser = async () => {
       try {
         const { data } = await axios.get("/api/users/student/me");
-        console.log(data);
 
+        console.log(user);
         const userData = {
           id: data._id,
           email: data.email,
@@ -39,20 +39,13 @@ const AuthProvider = ({ children }) => {
 
   const login = async (userLoginData) => {
     try {
-      const res = await axios.post("/api/users/student/sign-in", userLoginData);
-      console.log(res);
-
+      await axios.post("/api/users/student/sign-in", userLoginData);
       const { data } = await axios.get("/api/users/student/me");
-      console.log(data);
-
       const userData = data.data;
 
-      console.log(userData);
-
       if (userData) {
-        setUser("userData");
+        setUser(userData);
       }
-      console.log(user);
     } catch (error) {
       throw new Error("Invalid credentials");
     }
