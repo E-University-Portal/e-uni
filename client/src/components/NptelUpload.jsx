@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "@/contexts/ThemeProvider";
 
 export default function NptelUpload() {
   const [dragActive, setDragActive] = useState(false);
-  const navigate = useNavigate();
+  const { toggle } = useContext(ThemeContext);
 
   const handleDrag = (e) => {
     e.preventDefault();
@@ -59,9 +59,9 @@ export default function NptelUpload() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-full dark:bg-blue-900">
+    <div className="flex items-center justify-center w-full h-full">
       <form
-        className="bg-white p-8 rounded-lg shadow-lg"
+        className="bg-primary-foreground p-8 rounded-lg shadow-lg"
         onDragEnter={handleDrag}
         onDragOver={handleDrag}
         onDragLeave={handleDrag}
@@ -70,14 +70,16 @@ export default function NptelUpload() {
         <div className="mb-6 text-center">
           <div className="mb-4">
             <img
-              src="/certificate-icon.svg"
+              src={
+                !toggle ? "/certificate-icon.svg" : "/certificate-icon-dark.svg"
+              }
               alt="Upload Icon"
               className="mx-auto h-12 w-12"
             />
           </div>
           <label
             htmlFor="file-upload"
-            className="relative inline-block cursor-pointer rounded-md bg-primary py-2 px-4 font-semibold text-white focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-primary focus-within:ring-offset-2 hover:bg-indigo-primary"
+            className="relative inline-block cursor-pointer rounded-md bg-primary py-2 px-4 font-semibold text-primary-foreground focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-primary focus-within:ring-offset-2 hover:bg-indigo-primary"
           >
             <span>Upload NPTEL Certificate</span>
             <input
@@ -88,18 +90,18 @@ export default function NptelUpload() {
               onChange={handleFileChange}
             />
           </label>
-          <p className="mt-2 text-gray-primary">or drag and drop</p>
+          <p className="mt-2 text-secondary-foreground">or drag and drop</p>
         </div>
         <div
           className={`border-2 border-dashed rounded-lg p-6 ${
-            dragActive ? "border-primary" : "border-gray-primary"
+            dragActive ? "border-primary" : "border-secondary-foreground/40"
           }`}
         >
-          <p className="text-gray-500 text-center">
+          <p className="text-gray-600 dark:text-gray-400 text-center">
             Drag & Drop your file here
           </p>
         </div>
-        <p className="mt-4 text-xs text-gray-600 text-center">PDF up to 10MB</p>
+        <p className="mt-4 text-xs text-gray-500 text-center">PDF up to 10MB</p>
       </form>
     </div>
   );

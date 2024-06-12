@@ -8,8 +8,7 @@ export default function App() {
   const { toggle } = useContext(ThemeContext);
 
   return (
-    <div className={`h-full w-full ${toggle ? "dark" : ""}`}>
-      {/* <h1>Access Token: {cookies.accessToken}</h1> */}
+    <div className={`h-full w-full bg-secondary ${toggle ? "dark" : ""}`}>
       <Outlet />
       <Toaster />
     </div>
