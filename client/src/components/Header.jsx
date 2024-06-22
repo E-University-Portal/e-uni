@@ -1,38 +1,37 @@
-import { useState } from "react";
-import { Bell, BellOff } from "lucide-react";
+import { Bell } from "lucide-react";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
 import ThemeBtn from "@/components/ThemeBtn";
-export default function Header() {
-  const [notificationsOn, setNotificationsOn] = useState(true);
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "@/contexts/ThemeProvider";
 
-  const toggleNotifications = () => {
-    setNotificationsOn(!notificationsOn);
-  };
+// eslint-disable-next-line react/prop-types
+export default function Header({ isCollapsed }) {
+  const { toggle } = useContext(ThemeContext);
 
   return (
-    <>
-      <div className="flex flex-row bg-white items-center justify-end p-4 space-x-4">
-        <span className="mr-4">MyUni</span>
-        <Popover>
-          <PopoverTrigger>
-            {notificationsOn ? (
-              <Bell className="text-gray-600" />
-            ) : (
-              <BellOff className="text-gray-600" />
-            )}
-          </PopoverTrigger>
-          <PopoverContent>Notifications:</PopoverContent>
-        </Popover>
-        {/* <Button onClick={toggleNotifications}>
-          {notificationsOn ? "Turn Off Notifications" : "Turn On Notifications"}
-        </Button> */}
-        <ThemeBtn />
-      </div>
-    </>
+    <div
+      className={`${
+        isCollapsed ? "left-[5dvw] w-[95dvw]" : "left-[12dvw] w-[88dvw]"
+      } pb-1 pt-1 flex flex-row items-center justify-end px-4 space-x-4 bg-accent fixed top-0 border-b border-secondary-foreground/20 transition-all duration-150 h-[10vh]`}
+    >
+      <Popover>
+        <PopoverTrigger>
+          <Bell className="text-accent-foreground" />
+        </PopoverTrigger>
+        <PopoverContent>Notifications:</PopoverContent>
+      </Popover>
+      <ThemeBtn />
+      <Link to="/profile" className="flex justify-center items-center h-fit">
+        <img
+          src={!toggle ? "/profile.svg" : "/profile-black.svg"}
+          className="w-[3dvw] h-[3dvw] mb-1 ml-8 mr-8 transition-transform duration-200"
+        />
+      </Link>
+    </div>
   );
 }

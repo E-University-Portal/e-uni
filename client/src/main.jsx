@@ -15,6 +15,7 @@ import AuthOutlet from "@/components/AuthOutlet.jsx";
 import StudentNptelPage from "@/pages/student/NptelPage.jsx";
 import { AuthProvider } from "./contexts/AuthProvider.jsx";
 import ProtectedRoute from "./components/ProtectedRoutes.jsx";
+import StudentDashboard from "./pages/student/StudentDashboard.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,12 +26,11 @@ const router = createBrowserRouter(
         <Route path="/auth/faculty" element={<FacultyLoginPage />} />
       </Route>
       <Route element={<ProtectedRoute />}>
+        <Route path="/" element={<StudentDashboard />} />
         <Route path="/nptel" element={<StudentNptelPage />} />
-        {/* <Route path="/dashboard" element={<DashboardPage />} /> */}
-        {/* <Route path="/subscription" element={<SubscriptionPage />} /> */}
       </Route>
-    </Route>,
-  ),
+    </Route>
+  )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -40,5 +40,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <RouterProvider router={router} />
       </AuthProvider>
     </ThemeProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
